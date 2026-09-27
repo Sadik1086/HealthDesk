@@ -39,7 +39,7 @@ public class LoginController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
             Parent root = loader.load();
-            Main.setRoot(root, "HealthDesk - Dashboard");
+            usernameField.getScene().setRoot(root);
         } catch (IOException e) {
             showError("Failed to load the main application window.");
             e.printStackTrace();
