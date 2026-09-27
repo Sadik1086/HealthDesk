@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.healthdesk.controller.DrugInfoController">
+
+    <VBox spacing="16" style="-fx-padding: 20;">
+
+        <!-- Header -->
+        <Label text="Drug Information Search" styleClass="section-title"/>
+        <Label text="Search by generic name or Bangladeshi brand name (e.g. Napa, Ace, Seclo, Moxacil). Searches OpenFDA first, then RxNav as fallback."
+               wrapText="true"
+               style="-fx-text-fill: #7F8C8D; -fx-font-size: 12px;"/>
+
+        <!-- Search card -->
+        <VBox styleClass="card" spacing="10">
+            <Label text="Search Drug" style="-fx-font-weight: bold; -fx-text-fill: #2C3E50;"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="tfDrugName"
+                           promptText="e.g. Napa, Paracetamol, Seclo, Amoxicillin, Ibuprofen..."
+                           HBox.hgrow="ALWAYS"/>
+                <Button text="🔍 Search"  styleClass="btn-primary"   onAction="#handleSearch"/>
+                <Button text="Clear"      styleClass="btn-secondary"  onAction="#handleClear"/>
+                <ProgressIndicator fx:id="searchProgress"
+                                   prefWidth="26" prefHeight="26"
+                                   visible="false" managed="false"/>
+            </HBox>
+
+            <!-- Mapping note: shown when a BD brand name was resolved -->
+            <Label fx:id="lblMappingNote"
+                   text=""
+                   wrapText="true"
+                   visible="false" managed="false"
+                   style="-fx-text-fill: #1ABC9C; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+
+            <!-- Status message -->
+            <Label fx:id="lblStatus"
+                   text="Enter a drug name above and click Search."
+                   wrapText="true"
+                   style="-fx-text-fill: #7F8C8D; -fx-font-size: 12px;"/>
+        </VBox>
+
+        <!-- Brand name + Manufacturer + Source row -->
+        <HBox spacing="14">
+            <VBox styleClass="stat-card stat-accent-blue" spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Drug / Concept Name" styleClass="stat-label"/>
+                <Label fx:id="lblBrandName" text="-"
+                       style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;"
+                       wrapText="true"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-purple" spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Manufacturer / Synonyms" styleClass="stat-label"/>
+                <Label fx:id="lblManufacturer" text="-"
+                       style="-fx-font-size: 13px; -fx-text-fill: #2C3E50;" wrapText="true"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-green" spacing="4" prefWidth="130">
+                <Label text="Data Source" styleClass="stat-label"/>
+                <Label fx:id="lblSource" text="-"
+                       style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #27AE60;"/>
+            </VBox>
+        </HBox>
+
+        <!-- Uses / Indications -->
+        <VBox styleClass="card" spacing="8">
+            <Label text="  Uses / Indications"
+                   style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #2980B9;"/>
+            <TextArea fx:id="taIndications"
+                      editable="false" wrapText="true" prefRowCount="4"
+                      style="-fx-background-color: #F8F9FA; -fx-border-color: #E0E0E0;"/>
+        </VBox>
+
+        <!-- Dosage -->
+        <VBox styleClass="card" spacing="8">
+            <Label text="  Dosage and Administration"
+                   style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #27AE60;"/>
+            <TextArea fx:id="taDosage"
+                      editable="false" wrapText="true" prefRowCount="4"
+                      style="-fx-background-color: #F8F9FA; -fx-border-color: #E0E0E0;"/>
+        </VBox>
+
+        <!-- Side effects -->
+        <VBox styleClass="card" spacing="8">
+            <Label text="  Side Effects / Adverse Reactions"
+                   style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #E67E22;"/>
+            <TextArea fx:id="taSideEffects"
+                      editable="false" wrapText="true" prefRowCount="4"
+                      style="-fx-background-color: #F8F9FA; -fx-border-color: #E0E0E0;"/>
+        </VBox>
+
+        <!-- Warnings -->
+        <VBox styleClass="card" spacing="8">
+            <Label text="  Warnings"
+                   style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #E74C3C;"/>
+            <TextArea fx:id="taWarnings"
+                      editable="false" wrapText="true" prefRowCount="4"
+                      style="-fx-background-color: #FFF5F5; -fx-border-color: #E74C3C;"/>
+        </VBox>
+
+        <!-- Disclaimer -->
+        <Label text="⚕  Data from OpenFDA (api.fda.gov) and RxNav (rxnav.nlm.nih.gov). For reference only — always consult a licensed physician."
+               wrapText="true"
+               style="-fx-text-fill: #95A5A6; -fx-font-size: 11px; -fx-font-style: italic;"/>
+
+    </VBox>
+</ScrollPane>

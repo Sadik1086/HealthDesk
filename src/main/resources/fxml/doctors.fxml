@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.healthdesk.controller.DoctorController">
+    <center>
+        <TableView fx:id="table" style="-fx-padding: 10;">
+            <columns>
+                <TableColumn fx:id="colId"     text="ID"             prefWidth="50"/>
+                <TableColumn fx:id="colName"   text="Name"           prefWidth="180"/>
+                <TableColumn fx:id="colSpec"   text="Specialization" prefWidth="160"/>
+                <TableColumn fx:id="colDept"   text="Department"     prefWidth="140"/>
+                <TableColumn fx:id="colPhone"  text="Phone"          prefWidth="130"/>
+                <TableColumn fx:id="colStatus" text="Status"         prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <VBox spacing="10" style="-fx-padding: 10; -fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-width: 0 0 0 1;" prefWidth="270">
+            <Label text="Doctor Details" styleClass="section-title"/>
+            <Label text="Full Name"/>
+            <TextField fx:id="tfName" promptText="Doctor name"/>
+            <Label text="Specialization"/>
+            <TextField fx:id="tfSpec" promptText="e.g. Cardiologist"/>
+            <Label text="Department"/>
+            <ComboBox fx:id="cbDept" maxWidth="Infinity"/>
+            <Label text="Phone"/>
+            <TextField fx:id="tfPhone" promptText="Phone number"/>
+            <Label text="Email"/>
+            <TextField fx:id="tfEmail" promptText="Email address"/>
+            <CheckBox fx:id="chkAvailable" text="Available" selected="true"/>
+            <HBox spacing="8">
+                <Button text="Save"   styleClass="btn-success" onAction="#handleSave"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Delete" styleClass="btn-danger"  onAction="#handleDelete" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+            <Button text="Clear" styleClass="btn-secondary" maxWidth="Infinity" onAction="#handleClear"/>
+        </VBox>
+    </right>
+</BorderPane>

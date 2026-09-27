@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.healthdesk.controller.PatientController">
+    <top>
+        <HBox spacing="10" style="-fx-padding: 10;">
+            <TextField fx:id="tfSearch" promptText="Search by name or phone..." prefWidth="250"/>
+            <Button text="Search" styleClass="btn-primary" onAction="#handleSearch"/>
+            <Button text="Show All" styleClass="btn-secondary" onAction="#handleClear"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="table" style="-fx-padding: 0 10 10 10;">
+            <columns>
+                <TableColumn fx:id="colId"    text="ID"         prefWidth="50"/>
+                <TableColumn fx:id="colName"  text="Name"       prefWidth="180"/>
+                <TableColumn fx:id="colAge"   text="Age"        prefWidth="60"/>
+                <TableColumn fx:id="colGender" text="Gender"    prefWidth="80"/>
+                <TableColumn fx:id="colPhone" text="Phone"      prefWidth="140"/>
+                <TableColumn fx:id="colBlood" text="Blood Group" prefWidth="100"/>
+                <TableColumn fx:id="colDate"  text="Registered" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <VBox spacing="10" style="-fx-padding: 10; -fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-width: 0 0 0 1;" prefWidth="260">
+            <Label text="Patient Details" styleClass="section-title"/>
+            <Label text="Full Name"/>
+            <TextField fx:id="tfName" promptText="Patient name"/>
+            <Label text="Age"/>
+            <TextField fx:id="tfAge" promptText="Age"/>
+            <Label text="Gender"/>
+            <ComboBox fx:id="cbGender" maxWidth="Infinity"/>
+            <Label text="Phone"/>
+            <TextField fx:id="tfPhone" promptText="Phone number"/>
+            <Label text="Email"/>
+            <TextField fx:id="tfEmail" promptText="Email address"/>
+            <Label text="Address"/>
+            <TextField fx:id="tfAddress" promptText="Address"/>
+            <Label text="Blood Group"/>
+            <ComboBox fx:id="cbBlood" maxWidth="Infinity"/>
+            <HBox spacing="8">
+                <Button text="Save" styleClass="btn-success" onAction="#handleSave" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Delete" styleClass="btn-danger" onAction="#handleDelete" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+            <Button text="Clear" styleClass="btn-secondary" maxWidth="Infinity" onAction="#handleClear"/>
+        </VBox>
+    </right>
+</BorderPane>

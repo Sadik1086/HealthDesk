@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.healthdesk.controller.ReportController">
+    <VBox spacing="16" style="-fx-padding: 20;">
+
+        <HBox alignment="CENTER_LEFT" spacing="14">
+            <Label text="Hospital Reports" styleClass="section-title"/>
+            <Button text="🔄 Refresh" styleClass="btn-secondary" onAction="#handleRefresh"/>
+        </HBox>
+
+        <!-- Summary cards Row 1 -->
+        <HBox spacing="14">
+            <VBox styleClass="stat-card stat-accent-blue" spacing="4">
+                <Label text="Total Patients" styleClass="stat-label"/>
+                <Label fx:id="lblTotalPatients" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-green" spacing="4">
+                <Label text="Total Revenue (৳)" styleClass="stat-label"/>
+                <Label fx:id="lblTotalRevenue" text="৳ 0.00" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-green" spacing="4">
+                <Label text="Paid Bills" styleClass="stat-label"/>
+                <Label fx:id="lblPaidBills" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-red" spacing="4">
+                <Label text="Unpaid Bills" styleClass="stat-label"/>
+                <Label fx:id="lblUnpaidBills" text="0" styleClass="stat-value"/>
+            </VBox>
+        </HBox>
+
+        <!-- Summary cards Row 2 -->
+        <HBox spacing="14">
+            <VBox styleClass="stat-card stat-accent-blue" spacing="4">
+                <Label text="Today's Appointments" styleClass="stat-label"/>
+                <Label fx:id="lblTodayAppointments" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-orange" spacing="4">
+                <Label text="Pending Appointments" styleClass="stat-label"/>
+                <Label fx:id="lblPendingAppointments" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-orange" spacing="4">
+                <Label text="Beds Occupied" styleClass="stat-label"/>
+                <Label fx:id="lblOccupiedBeds" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-green" spacing="4">
+                <Label text="Beds Available" styleClass="stat-label"/>
+                <Label fx:id="lblAvailableBeds" text="0" styleClass="stat-value"/>
+            </VBox>
+        </HBox>
+
+        <!-- Lab summary -->
+        <HBox spacing="14">
+            <VBox styleClass="stat-card stat-accent-orange" spacing="4">
+                <Label text="Pending Lab Tests" styleClass="stat-label"/>
+                <Label fx:id="lblPendingLab" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-green" spacing="4">
+                <Label text="Completed Lab Tests" styleClass="stat-label"/>
+                <Label fx:id="lblCompletedLab" text="0" styleClass="stat-value"/>
+            </VBox>
+        </HBox>
+
+        <!-- Bar Chart -->
+        <VBox styleClass="card" spacing="8">
+            <Label text="Doctors per Department" styleClass="section-title"/>
+            <BarChart fx:id="deptChart" prefHeight="220" animated="false">
+                <xAxis><CategoryAxis/></xAxis>
+                <yAxis><NumberAxis/></yAxis>
+            </BarChart>
+        </VBox>
+
+        <!-- Recent appointments table -->
+        <VBox styleClass="card" spacing="8">
+            <Label text="Recent Appointments (Last 20)" styleClass="section-title"/>
+            <TableView fx:id="apptTable" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="colApptPatient" text="Patient" prefWidth="180"/>
+                    <TableColumn fx:id="colApptDoctor"  text="Doctor"  prefWidth="180"/>
+                    <TableColumn fx:id="colApptDate"    text="Date"    prefWidth="120"/>
+                    <TableColumn fx:id="colApptStatus"  text="Status"  prefWidth="110"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+    </VBox>
+</ScrollPane>

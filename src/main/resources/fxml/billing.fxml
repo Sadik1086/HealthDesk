@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.healthdesk.controller.BillingController">
+    <center>
+        <TableView fx:id="table" style="-fx-padding: 10;">
+            <columns>
+                <TableColumn fx:id="colId"      text="ID"      prefWidth="50"/>
+                <TableColumn fx:id="colPatient" text="Patient" prefWidth="160"/>
+                <TableColumn fx:id="colTotal"   text="Total (৳)" prefWidth="110"/>
+                <TableColumn fx:id="colStatus"  text="Status"  prefWidth="100"/>
+                <TableColumn fx:id="colMethod"  text="Method"  prefWidth="100"/>
+                <TableColumn fx:id="colDate"    text="Date"    prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <VBox spacing="10" style="-fx-padding: 10; -fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-width: 0 0 0 1;" prefWidth="280">
+            <Label text="Create Bill" styleClass="section-title"/>
+            <Label text="Patient"/>
+            <ComboBox fx:id="cbPatient" maxWidth="Infinity"/>
+            <Label text="Consultation Fee (৳)"/>
+            <TextField fx:id="tfConsultation" promptText="0"/>
+            <Label text="Lab Charges (৳)"/>
+            <TextField fx:id="tfLab" promptText="0"/>
+            <Label text="Bed Charges (৳)"/>
+            <TextField fx:id="tfBed" promptText="0"/>
+            <Label text="Medicine Charges (৳)"/>
+            <TextField fx:id="tfMedicine" promptText="0"/>
+            <Label fx:id="lblTotal" text="Total: ৳ 0.00"
+                   style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;"/>
+            <Button text="💰 Create Bill" styleClass="btn-primary" maxWidth="Infinity" onAction="#handleCreateBill"/>
+            <Separator/>
+            <Label text="Mark Selected Bill as Paid" styleClass="section-title"/>
+            <ComboBox fx:id="cbPayMethod" maxWidth="Infinity" promptText="Payment method"/>
+            <Button text="✅ Mark as Paid" styleClass="btn-success" maxWidth="Infinity" onAction="#handleMarkPaid"/>
+            <Button text="Clear" styleClass="btn-secondary" maxWidth="Infinity" onAction="#handleClear"/>
+        </VBox>
+    </right>
+</BorderPane>

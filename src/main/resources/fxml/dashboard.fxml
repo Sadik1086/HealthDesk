@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.healthdesk.controller.DashboardController">
+    <VBox spacing="18" style="-fx-padding: 20;">
+
+        <Label text="Hospital Overview" styleClass="section-title"/>
+
+        <!-- Row 1: Patient + Appointments + Doctors + Revenue -->
+        <HBox spacing="14">
+            <VBox styleClass="stat-card stat-accent-blue" spacing="4">
+                <Label text="Total Patients" styleClass="stat-label"/>
+                <Label fx:id="lblTotalPatients" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-green" spacing="4">
+                <Label text="Today's Appointments" styleClass="stat-label"/>
+                <Label fx:id="lblTodayAppointments" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-purple" spacing="4">
+                <Label text="Available Doctors" styleClass="stat-label"/>
+                <Label fx:id="lblAvailableDoctors" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-green" spacing="4">
+                <Label text="Total Revenue (৳)" styleClass="stat-label"/>
+                <Label fx:id="lblTotalRevenue" text="৳ 0.00" styleClass="stat-value"/>
+            </VBox>
+        </HBox>
+
+        <!-- Row 2: Beds + Emergency + Lab + Unpaid -->
+        <HBox spacing="14">
+            <VBox styleClass="stat-card stat-accent-orange" spacing="4">
+                <Label text="Beds Occupied" styleClass="stat-label"/>
+                <Label fx:id="lblOccupiedBeds" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-red" spacing="4">
+                <Label text="Emergency Waiting" styleClass="stat-label"/>
+                <Label fx:id="lblEmergencyWaiting" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-orange" spacing="4">
+                <Label text="Pending Lab Tests" styleClass="stat-label"/>
+                <Label fx:id="lblPendingLab" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-accent-red" spacing="4">
+                <Label text="Unpaid Bills" styleClass="stat-label"/>
+                <Label fx:id="lblUnpaidBills" text="0" styleClass="stat-value"/>
+            </VBox>
+        </HBox>
+
+        <!-- Health Tip API Section (Week 7 + Week 4) -->
+        <VBox styleClass="card" spacing="10">
+            <Label text="💡 Health Tip of the Day  (JSON API + Multithreading)" styleClass="section-title"/>
+            <Label fx:id="tipLabel" text="Click the button to fetch a health tip from the internet."
+                   wrapText="true" style="-fx-text-fill: #2C3E50; -fx-font-size: 13px;"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Fetch Health Tip" styleClass="btn-primary" onAction="#handleFetchTip"/>
+                <Button text="🔄 Refresh Stats"  styleClass="btn-secondary" onAction="#handleRefresh"/>
+                <ProgressIndicator fx:id="tipProgress" prefWidth="24" prefHeight="24" visible="false" managed="false"/>
+            </HBox>
+        </VBox>
+
+    </VBox>
+</ScrollPane>

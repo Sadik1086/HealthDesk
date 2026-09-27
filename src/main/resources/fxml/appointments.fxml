@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.healthdesk.controller.AppointmentController">
+    <center>
+        <TableView fx:id="table" style="-fx-padding: 10;">
+            <columns>
+                <TableColumn fx:id="colId"      text="ID"      prefWidth="50"/>
+                <TableColumn fx:id="colPatient" text="Patient" prefWidth="160"/>
+                <TableColumn fx:id="colDoctor"  text="Doctor"  prefWidth="160"/>
+                <TableColumn fx:id="colDate"    text="Date"    prefWidth="110"/>
+                <TableColumn fx:id="colTime"    text="Time"    prefWidth="90"/>
+                <TableColumn fx:id="colReason"  text="Reason"  prefWidth="160"/>
+                <TableColumn fx:id="colStatus"  text="Status"  prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <VBox spacing="10" style="-fx-padding: 10; -fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-width: 0 0 0 1;" prefWidth="270">
+            <Label text="Book Appointment" styleClass="section-title"/>
+            <Label text="Patient"/>
+            <ComboBox fx:id="cbPatient" maxWidth="Infinity"/>
+            <Label text="Doctor"/>
+            <ComboBox fx:id="cbDoctor" maxWidth="Infinity"/>
+            <Label text="Date"/>
+            <DatePicker fx:id="dpDate" maxWidth="Infinity"/>
+            <Label text="Time Slot"/>
+            <ComboBox fx:id="cbTimeSlot" maxWidth="Infinity"/>
+            <Label text="Reason"/>
+            <TextField fx:id="tfReason" promptText="Reason for visit"/>
+            <Label text="Status"/>
+            <ComboBox fx:id="cbStatus" maxWidth="Infinity"/>
+            <Button text="Book Appointment" styleClass="btn-success" maxWidth="Infinity" onAction="#handleSave"/>
+            <HBox spacing="8">
+                <Button text="Complete" styleClass="btn-primary"   onAction="#handleMarkComplete" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="Cancel"   styleClass="btn-danger"    onAction="#handleCancel"       HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+            <Button text="Clear" styleClass="btn-secondary" maxWidth="Infinity" onAction="#handleClear"/>
+        </VBox>
+    </right>
+</BorderPane>

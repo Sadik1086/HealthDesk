@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.healthdesk.controller.MainController">
+    <left>
+        <ScrollPane fitToWidth="true" style="-fx-background-color:#1A252F;" hbarPolicy="NEVER">
+            <VBox styleClass="sidebar" spacing="2" prefWidth="220">
+                <Label text=" HealthDesk" styleClass="sidebar-title"/>
+                <Label text="Hospital Management System" styleClass="sidebar-subtitle"/>
+                <Button fx:id="navDashboard"    text="  Dashboard"       styleClass="nav-button" maxWidth="Infinity" onAction="#showDashboard"/>
+                <Button fx:id="navPatients"     text="   Patients"        styleClass="nav-button" maxWidth="Infinity" onAction="#showPatients"/>
+                <Button fx:id="navDoctors"      text="⚕️ Doctors"         styleClass="nav-button" maxWidth="Infinity" onAction="#showDoctors"/>
+                <Button fx:id="navAppointments" text=" Appointments"    styleClass="nav-button" maxWidth="Infinity" onAction="#showAppointments"/>
+                <Button fx:id="navEmergency"    text="  Emergency Queue" styleClass="nav-button" maxWidth="Infinity" onAction="#showEmergency"/>
+                <Button fx:id="navBeds"         text="  Bed Management"  styleClass="nav-button" maxWidth="Infinity" onAction="#showBeds"/>
+                <Button fx:id="navLab"          text="  Lab Services"    styleClass="nav-button" maxWidth="Infinity" onAction="#showLab"/>
+                <Button fx:id="navBilling"      text="  Billing"         styleClass="nav-button" maxWidth="Infinity" onAction="#showBilling"/>
+                <Button fx:id="navDrugInfo"     text="  Drug Info"       styleClass="nav-button" maxWidth="Infinity" onAction="#showDrugInfo"/>
+                <Button fx:id="navReports"      text="  Reports"         styleClass="nav-button" maxWidth="Infinity" onAction="#showReports"/>
+                <Region VBox.vgrow="ALWAYS"/>
+                <Button text="⏻  Logout" styleClass="nav-button" maxWidth="Infinity" onAction="#handleLogout"/>
+            </VBox>
+        </ScrollPane>
+    </left>
+    <top>
+        <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="10">
+            <Label fx:id="pageTitleLabel" text="Dashboard" styleClass="topbar-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="emergencyBadge" text="" styleClass="badge badge-danger" visible="false" managed="false"/>
+            <Label fx:id="userBadge" styleClass="user-badge"/>
+        </HBox>
+    </top>
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-pane"/>
+    </center>
+</BorderPane>

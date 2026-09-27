@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.healthdesk.controller.BedController">
+    <top>
+        <HBox spacing="20" style="-fx-padding: 10; -fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-width: 0 0 1 0;" alignment="CENTER_LEFT">
+            <Label fx:id="lblAvailable" text="Available: 0" style="-fx-font-size: 14px; -fx-text-fill: #27AE60; -fx-font-weight: bold;"/>
+            <Label fx:id="lblOccupied"  text="Occupied: 0"  style="-fx-font-size: 14px; -fx-text-fill: #E74C3C; -fx-font-weight: bold;"/>
+            <Button text="🔄 Refresh" styleClass="btn-secondary" onAction="#handleRefresh"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="table" style="-fx-padding: 10;">
+            <columns>
+                <TableColumn fx:id="colId"       text="ID"          prefWidth="50"/>
+                <TableColumn fx:id="colBed"      text="Bed No."     prefWidth="100"/>
+                <TableColumn fx:id="colWard"     text="Ward"        prefWidth="160"/>
+                <TableColumn fx:id="colPatient"  text="Patient"     prefWidth="180"/>
+                <TableColumn fx:id="colStatus"   text="Status"      prefWidth="110"/>
+                <TableColumn fx:id="colAdmitted" text="Admitted At" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <VBox spacing="12" style="-fx-padding: 14; -fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-width: 0 0 0 1;" prefWidth="270">
+            <Label text="Bed Actions" styleClass="section-title"/>
+            <Label text="Select a bed from the table, then choose a patient to admit." wrapText="true"
+                   style="-fx-text-fill: #7F8C8D; -fx-font-size: 11px;"/>
+            <Separator/>
+            <Label text="Select Patient to Admit"/>
+            <ComboBox fx:id="cbPatient" maxWidth="Infinity"/>
+            <Button text=" Admit Patient"    styleClass="btn-success"   maxWidth="Infinity" onAction="#handleAdmit"/>
+            <Button text="Discharge Patient" styleClass="btn-danger"    maxWidth="Infinity" onAction="#handleDischarge"/>
+        </VBox>
+    </right>
+</BorderPane>

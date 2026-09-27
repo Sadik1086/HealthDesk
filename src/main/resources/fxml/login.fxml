@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.healthdesk.controller.LoginController"
+           styleClass="login-bg">
+
+    <VBox alignment="CENTER" maxWidth="380" maxHeight="440" styleClass="login-card" spacing="14">
+        <padding><Insets top="40" bottom="40" left="40" right="40"/></padding>
+
+        <Label text=" HealthDesk" styleClass="login-title"/>
+        <Label text="Hospital Management System" styleClass="login-subtitle" wrapText="true"/>
+
+        <VBox spacing="6">
+            <Label text="Username"/>
+            <TextField fx:id="usernameField" promptText="e.g. admin"/>
+        </VBox>
+
+        <VBox spacing="6">
+            <Label text="Password"/>
+            <PasswordField fx:id="passwordField" promptText="Enter password"/>
+        </VBox>
+
+        <Label fx:id="errorLabel" styleClass="error-text" visible="false" wrapText="true"/>
+
+        <Button text="Login" styleClass="btn-primary" maxWidth="Infinity"
+                onAction="#handleLogin" defaultButton="true"/>
+
+        <Label text="Default: admin / admin123  |  staff / staff123"
+               style="-fx-font-size: 10px; -fx-text-fill: #AAAAAA;"/>
+    </VBox>
+</StackPane>

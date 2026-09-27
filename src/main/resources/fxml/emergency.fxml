@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.healthdesk.controller.EmergencyController">
+    <top>
+        <HBox spacing="14" style="-fx-padding: 10; -fx-background-color: #C0392B; -fx-alignment: CENTER_LEFT;">
+            <Label text=" LIVE EMERGENCY QUEUE" style="-fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold;"/>
+            <Label fx:id="lblQueueCount" text="Waiting: 0" style="-fx-text-fill: white; -fx-font-size: 13px;"/>
+            <Label text="(Auto-refreshes every 4 seconds via background thread)" style="-fx-text-fill: #FFD7D7; -fx-font-size: 11px;"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="table" style="-fx-padding: 10;">
+            <columns>
+                <TableColumn fx:id="colId"       text="ID"          prefWidth="50"/>
+                <TableColumn fx:id="colPatient"  text="Patient"     prefWidth="160"/>
+                <TableColumn fx:id="colPriority" text="Priority"    prefWidth="120"/>
+                <TableColumn fx:id="colDesc"     text="Description" prefWidth="200"/>
+                <TableColumn fx:id="colStatus"   text="Status"      prefWidth="100"/>
+                <TableColumn fx:id="colArrived"  text="Arrived At"  prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <VBox spacing="10" style="-fx-padding: 10; -fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-width: 0 0 0 1;" prefWidth="270">
+            <Label text="Add to Queue" styleClass="section-title"/>
+            <Label text="Patient"/>
+            <ComboBox fx:id="cbPatient" maxWidth="Infinity"/>
+            <Label text="Priority"/>
+            <ComboBox fx:id="cbPriority" maxWidth="Infinity"/>
+            <Label text="Description"/>
+            <TextField fx:id="tfDescription" promptText="Brief description"/>
+            <Button text="Add to Emergency Queue" styleClass="btn-danger" maxWidth="Infinity" onAction="#handleAdd"/>
+            <Separator/>
+            <Button text="✅ Mark Attended"  styleClass="btn-success"   maxWidth="Infinity" onAction="#handleAttend"/>
+            <Button text="🗑 Remove from Queue" styleClass="btn-secondary" maxWidth="Infinity" onAction="#handleRemove"/>
+        </VBox>
+    </right>
+</BorderPane>

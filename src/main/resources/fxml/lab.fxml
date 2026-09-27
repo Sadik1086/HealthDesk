@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.healthdesk.controller.LabController">
+    <center>
+        <TableView fx:id="table" style="-fx-padding: 10;">
+            <columns>
+                <TableColumn fx:id="colId"      text="ID"       prefWidth="50"/>
+                <TableColumn fx:id="colPatient" text="Patient"  prefWidth="160"/>
+                <TableColumn fx:id="colTest"    text="Test"     prefWidth="160"/>
+                <TableColumn fx:id="colDoctor"  text="Doctor"   prefWidth="150"/>
+                <TableColumn fx:id="colOrdered" text="Ordered"  prefWidth="150"/>
+                <TableColumn fx:id="colStatus"  text="Status"   prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <VBox spacing="10" style="-fx-padding: 10; -fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-width: 0 0 0 1;" prefWidth="280">
+            <Label text="Order Lab Test" styleClass="section-title"/>
+            <Label text="Patient"/>
+            <ComboBox fx:id="cbPatient" maxWidth="Infinity"/>
+            <Label text="Lab Test"/>
+            <ComboBox fx:id="cbTest" maxWidth="Infinity"/>
+            <Label text="Referring Doctor"/>
+            <ComboBox fx:id="cbDoctor" maxWidth="Infinity"/>
+            <Button text="🔬 Place Lab Order" styleClass="btn-primary" maxWidth="Infinity" onAction="#handleOrder"/>
+            <Separator/>
+            <Label text="Enter Result (for selected order)" styleClass="section-title"/>
+            <TextField fx:id="tfResult" promptText="Enter test result here..."/>
+            <Button text="✅ Save Result" styleClass="btn-success" maxWidth="Infinity" onAction="#handleEnterResult"/>
+        </VBox>
+    </right>
+</BorderPane>
