@@ -36,7 +36,6 @@ public class DoctorController {
         colDept.setCellValueFactory(c -> c.getValue().departmentNameProperty());
         colPhone.setCellValueFactory(c -> c.getValue().phoneProperty());
         colStatus.setCellValueFactory(c -> c.getValue().availableProperty());
-
         loadDepartments();
 
         table.getSelectionModel().selectedItemProperty().addListener((obs, old, val) -> {
