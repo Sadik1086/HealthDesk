@@ -6,8 +6,9 @@ import com.healthdesk.model.Patient;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.healthdesk.util.Searchable;
 
-public class PatientDAO {
+public class PatientDAO implements Searchable<Patient> {
 
     public List<Patient> findAll() {
         List<Patient> list = new ArrayList<>();
@@ -115,5 +116,9 @@ public class PatientDAO {
         p.setBloodGroup(rs.getString("blood_group"));
         p.setRegisteredAt(rs.getString("registered_at"));
         return p;
+    }
+    @Override
+    public List<Patient> searchByName(String keyword) {
+        return search(keyword); // আপনার বিদ্যমান search() মেথডকে কল করবে
     }
 }

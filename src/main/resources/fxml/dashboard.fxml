@@ -51,7 +51,7 @@
 
         <!-- Health Tip API Section (Week 7 + Week 4) -->
         <VBox styleClass="card" spacing="10">
-            <Label text="💡 Health Tip of the Day  (JSON API + Multithreading)" styleClass="section-title"/>
+            <Label text=" Health Tip of the Day " styleClass="section-title"/>
             <Label fx:id="tipLabel" text="Click the button to fetch a health tip from the internet."
                    wrapText="true" style="-fx-text-fill: #2C3E50; -fx-font-size: 13px;"/>
             <HBox spacing="10" alignment="CENTER_LEFT">
